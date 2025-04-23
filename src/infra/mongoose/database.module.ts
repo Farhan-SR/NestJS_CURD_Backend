@@ -4,10 +4,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseConfigService } from './mongoose-config.service';
 
-
 @Module({
   imports: [
-    ConfigModule.forRoot({isGlobal: true}),
+    ConfigModule.forRoot({ isGlobal: true }),
     // MongooseModule.forRootAsync({
     //   imports: [ConfigModule],
     //   useFactory: (configService: ConfigService) => {
@@ -20,10 +19,10 @@ import { MongooseConfigService } from './mongoose-config.service';
     //   inject: [ConfigService],
     // }),
     MongooseModule.forRootAsync({
-      useClass: MongooseConfigService
-    })
-
+      useClass: MongooseConfigService,
+    }),
   ],
+  providers:[],
   exports: [MongooseModule],
 })
 export class DatabaseModule {}

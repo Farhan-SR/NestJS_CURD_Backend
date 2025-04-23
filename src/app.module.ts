@@ -5,10 +5,13 @@ import { AlbumsController } from './albums.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseConfigService } from './infra/mongoose/mongoose-config.service';
 import { DatabaseModule } from './infra/mongoose/database.module';
+import { UsersModule } from './users/users.module';
+import { JobsModule } from './jobs/jobs.module';
+import { UsersController } from './users/users.controller';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({isGlobal: true}),DatabaseModule
+    ConfigModule.forRoot({isGlobal: true}),DatabaseModule , UsersModule, JobsModule
     // MongooseModule.forRootAsync({
     //   imports: [ConfigModule],
     //   useFactory: (configService: ConfigService) => {
@@ -25,7 +28,8 @@ import { DatabaseModule } from './infra/mongoose/database.module';
     // })
 
   ],
-  controllers: [UserController, AlbumsController],
+  controllers: [],
   providers: [],
 })
 export class AppModule {}
+ 
