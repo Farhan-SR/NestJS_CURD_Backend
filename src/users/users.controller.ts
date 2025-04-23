@@ -11,10 +11,15 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+    
+  constructor(private readonly usersService: UsersService) {
+    console.log("user controller" );
+  }
   @Post()
   async create(@Body() createuserdto) {
+    console.log("post")
     const user = await this.usersService.create(createuserdto);
+    return user ;
   }
 
   @Get()
