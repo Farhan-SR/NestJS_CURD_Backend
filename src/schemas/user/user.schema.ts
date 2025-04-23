@@ -5,12 +5,12 @@ import { Document } from 'mongoose';
 
 @Schema({ timestamps: true })
 export class User {
-  @Prop({ required: true })
+  @Prop()
   name: string;
 
-  @Prop({ required: true })
+  @Prop()
   email: string;
-  @Prop({ required: true, select: false })
+  @Prop({  select: false })
   password: string;
   @Prop()
   age?: number;
@@ -28,7 +28,7 @@ export class User {
   @Prop({
     type: String,
     enum: Object.keys(AccountType),
-    immutable: true,
+   
     required: true,
   })
   accountType: AccountType;
@@ -39,7 +39,7 @@ export class User {
   @Prop({ default: false })
   isVerified?: boolean;
 
-  @Prop({ type: addressSchema, required: true })
+  @Prop({ type: addressSchema })
   address: Address;
 
   @Prop(
